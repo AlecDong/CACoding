@@ -19,9 +19,9 @@ public class ClearPresenter implements ClearOutputBoundary {
     }
 
     @Override
-    public void prepareSuccessView(ClearOutputData response) {
+    public void prepareSuccessView(ClearOutputData response, String message) {
         SignupState signupState = signupViewModel.getState();
-        signupState.setClearMessage("cleared");
+        signupState.setClearMessage(message);
         signupViewModel.firePropertyChanged();
     }
 }

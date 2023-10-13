@@ -98,8 +98,14 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
     }
 
     @Override
-    public void clear() {
+    public String clear() {
+        StringBuilder deleted = new StringBuilder();
+        for (String account : accounts.keySet()) {
+            deleted.append(account);
+            deleted.append("\n");
+        }
         accounts.clear();
         this.save();
+        return deleted.toString();
     }
 }
