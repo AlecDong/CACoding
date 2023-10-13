@@ -8,6 +8,8 @@ public class SignupState {
     private String repeatPassword = "";
     private String repeatPasswordError = null;
 
+    private String clearMessage = null;
+
     public SignupState(SignupState copy) {
         username = copy.username;
         usernameError = copy.usernameError;
@@ -45,12 +47,19 @@ public class SignupState {
         return repeatPasswordError;
     }
 
+    public String getClearMessage() { return clearMessage; }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
     public void setUsernameError(String usernameError) {
         this.usernameError = usernameError;
+    }
+
+    public void setClearMessage(String clearMessage) {
+        this.clearMessage = clearMessage;
+        this.setUsernameError(null);
     }
 
     public void setPassword(String password) {
